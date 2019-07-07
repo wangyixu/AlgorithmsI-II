@@ -15,3 +15,4 @@ Part I:
 
 Part II:
 - [x] Week 1: WordNet
+- [x] Week 2: Seam
