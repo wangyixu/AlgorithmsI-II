@@ -1,5 +1,6 @@
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.Digraph;
+import edu.princeton.cs.algs4.DirectedCycle;
 import edu.princeton.cs.algs4.In;
 
 import java.util.HashMap;
@@ -13,7 +14,6 @@ public class WordNet {
 
     private final Map<String, Bag<Integer>> map;  // word - IDs
     private final String[] synsets;
-    // private Digraph digraph;
     private final SAP sap;
 
     // constructor takes the name of the two input files: synsets, hypernyms
@@ -50,11 +50,57 @@ public class WordNet {
             }
         }
 
-        // TODO：check if it's a rooted DAG
+        /*
+        // check if it's a rooted DAG
+        int rootCnt = 0;
+        boolean[] marked = new boolean[digraph.V()];
+        boolean[] onStack = new boolean[digraph.V()];
+        // Call the recursive helper function to detect cycle in different DFS trees
+        for (int v = 0; v < digraph.V(); v++) {
+            if (digraph.outdegree(v) == 0)  // root
+                rootCnt++;
+
+            if (dfsCycleHelper(digraph, v, marked, onStack))
+                throw new java.lang.IllegalArgumentException();
+        }
+        if (rootCnt != 1)
+            throw new java.lang.IllegalArgumentException();
+*/
+
+        // check if it's a rooted DAG
+        int rootCnt = 0;
+        for (int v = 0; v < digraph.V(); v++) {
+            if (digraph.outdegree(v) == 0)  // root
+                rootCnt++;
+        }
+        if (rootCnt != 1)
+            throw new java.lang.IllegalArgumentException();
+
+        DirectedCycle directedCycle = new DirectedCycle(digraph);
+        if (directedCycle.hasCycle())
+            throw new java.lang.IllegalArgumentException();
+
 
         sap = new SAP(digraph);
     }
 
+/*
+    private boolean dfsCycleHelper(Digraph digraph, int v, boolean[] marked, boolean[] onStack) {
+        if (onStack[v]) return true;
+        if (marked[v]) return false;
+
+        onStack[v] = true;
+        marked[v] = true;
+
+        for (int w : digraph.adj(v)) {
+            if (dfsCycleHelper(digraph, w, marked, onStack))
+                return true;
+        }
+
+        onStack[v] = false;
+        return false;
+    }
+*/
 
     // returns all WordNet nouns
     public Iterable<String> nouns() {
