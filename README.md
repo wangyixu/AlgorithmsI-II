@@ -15,4 +15,5 @@ Part I:
 
 Part II:
 - [x] Week 1: WordNet
-- [x] Week 2: Seam
+- [x] Week 2: Seam Carving
+- [x] Week 3: [Baseball Elimination](https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php)
