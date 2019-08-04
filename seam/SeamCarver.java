@@ -16,6 +16,8 @@ import java.util.Arrays;
      Correctness:  31/31 tests passed
      Memory:       6/6 tests passed
      Timing:       18/17 tests passed
+
+     Aggregate score: 101.18%
  *
  * Created by yixu on 2019/7/6.
  */

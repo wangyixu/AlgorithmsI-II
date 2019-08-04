@@ -8,6 +8,21 @@ import java.util.Map;
 
 /**
  *
+    ASSESSMENT SUMMARY
+
+    Compilation:  PASSED
+    API:          PASSED
+
+    Spotbugs:     PASSED
+    PMD:          FAILED (1 warning)
+    Checkstyle:   FAILED (0 errors, 1 warning)
+
+    Correctness:  36/36 tests passed
+    Memory:       4/4 tests passed
+    Timing:       27/27 tests passed
+
+    Aggregate score: 100.00%
+ *
  * Created by yixu on 2019/1/30.
  */
 public class WordNet {
